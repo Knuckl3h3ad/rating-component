@@ -3,41 +3,200 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Overpass:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   <title>Frontend Mentor | Interactive rating component</title>
-
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
+    .overpass-all {
+      font-family: "Overpass", sans-serif;
+      font-optical-sizing: auto;
+      font-style: normal;
+    }
+    body {
+      background-color: hsl(216, 12%, 8%);
+      font-family: "Overpass";
+    }    
+    section {
+      background-color: hsl(213, 19%, 18%);
+      margin: auto;
+      width: 340px;
+      height: 345px;
+      border: none;
+      border-radius: 30px;
+    }
+    .ratbox {
+      margin-top: 290px;
+    }
+    .thxbox {
+      visibility: hidden;
+      text-align: center;
+      margin-top: -345px;
+    }
+    .starimg {
+      margin-left: 25px;
+      margin-top: 25px;
+      background-color: hsl(214, 19%, 23%);
+      padding: 10px;
+      border: none;
+      border-radius: 999px;
+    }
+    .thximg {
+      margin-top: 30px;
+      margin-left: 89px;
+      margin-right: 89px;
+      margin-bottom: 20px;
+    }
+    h1 {
+      color: white;
+      font-size: 25px;
+      margin-top: 30px;
+      margin-left: 24px;
+      margin-bottom: 0px;
+    }
+    h2 {
+      color: white;
+      text-align: center;
+      margin-top: 40px;
+      margin-bottom: 10px;
+    }
+    .teller {
+      margin-top: 10px;
+      margin-left: 25px;
+      margin-right: 10px;
+      font-size: 13px;
+      line-height: 20px;
+      color: hsl(217, 12%, 63%);
+    }
+    .buttons {
+      margin-left: 24px;
+    }
+    .ratbtn {
+      font-weight: 600;
+      padding-top: 15px;
+      padding-bottom: 15px;
+      padding-left: 18px;
+      padding-right: 18px;
+      display: inline-block;
+      margin-right: 15px;
+      border: none;
+      border-radius: 999px;
+      background-color: hsl(214, 19%, 23%);
+      color: hsl(217, 12%, 63%);
+    }
+    .ratbtn:hover {
+      background-color: hsl(25, 97%, 53%);
+      cursor: pointer;
+      color: hsl(213, 19%, 18%);
+    }
+    .ratbtn:focus {
+      background-color: white;
+      color: hsl(214, 19%, 23%);
+    }
+    .submit {
+      cursor: pointer;
+      background-color: hsl(25, 97%, 53%);
+      color: hsl(213, 19%, 18%);
+      font-weight: 600;
+      margin-top: 25px;
+      margin-left: 25px;
+      padding-left: 120px;
+      padding-right: 120px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      border: none;
+      border-radius: 90px;
+    }
+    .submit:hover {
+      background-color: white;
+    }
+    .usrsel {
+      background-color: hsl(214, 19%, 23%);
+      border: none;
+      border-radius: 20px;
+      color: hsl(25, 97%, 53%);
+      display: inline;
+      font-size: 14px;
+      margin-bottom: 30px;
+      padding-top: 5px;
+      padding-left: 10px;
+      padding-right: 10px;
+      padding-bottom: 5px;
+    }
+    .desc {
+      color: hsl(217, 12%, 63%);
+      text-align: center;
+      font-size: 12.9px;
+      margin-top: 10px;
+      margin-left: 25px;
+      margin-right: 25px;
+    }
   </style>
 </head>
 <body>
+  <section id=".rating_page" class="ratbox">
+    <img class="starimg" alt="star" src="images/icon-star.svg"/>
+    <h1>How did we do?</h1>
+    <p class="teller">
+      Please let us know how we did with your support request. All feedback is appreciated 
+      to help us improve our offering!
+    </p>
+    <div class="buttons">
+      <button id="btn1" class="ratbtn">1</button>
+      <button id="btn2" class="ratbtn">2</button>
+      <button id="btn3" class="ratbtn">3</button>
+      <button id="btn4" class="ratbtn">4</button>
+      <button id="btn5" class="ratbtn">5</button>
+    </div>
+    <button id="sub" class="submit">SUBMIT</button>
+  </section>
 
-  <!-- Rating state start -->
+  <section id=".thanks_page" class="thxbox">
+    <img class="thximg" alt="thanks phone" src="images/illustration-thank-you.svg"/>
+      <p class="usrsel">
+        You selected 
+        <data id="num_stars"></data>
+        out of 5
+      </p>
+      <h2>Thank you!</h2>
+      <p class="desc">
+        We appreciate you taking the time to give a rating. If you ever need more support, 
+        don’t hesitate to get in touch!
+      </p>
+  </section>
+  <!--
+    <div id="thxpage" class="thank">
+      
+    </div>
+  -->
+  <script>
+    const sub = document.getElementById("sub");
+    const btn1 = document.getElementById("btn1").innerText;
+    const btn2 = document.getElementById("btn2").innerText;
+    const btn3 = document.getElementById("btn3").innerText;
+    const btn4 = document.getElementById("btn4").innerText;
+    const btn5 = document.getElementById("btn5").innerText;
 
-  How did we do?
-
-  Please let us know how we did with your support request. All feedback is appreciated 
-  to help us improve our offering!
-
-  1 2 3 4 5
-
-  Submit
-
-  <!-- Rating state end -->
-
-  <!-- Thank you state start -->
-
-  You selected <!-- Add rating here --> out of 5
-
-  Thank you!
-
-  We appreciate you taking the time to give a rating. If you ever need more support, 
-  don’t hesitate to get in touch!
-
-  <!-- Thank you state end -->
+    sub.addEventListener("click", submit);
+    document.getElementById("btn1").onclick = function() {
+      document.getElementById("num_stars").innerText = btn1;
+    }
+    document.getElementById("btn2").onclick = function() {
+      document.getElementById("num_stars").innerText = btn2;
+    }
+    document.getElementById("btn3").onclick = function() {
+      document.getElementById("num_stars").innerText = btn3;
+    }
+    document.getElementById("btn4").onclick = function() {
+      document.getElementById("num_stars").innerText = btn4;
+    }
+    document.getElementById("btn5").onclick = function() {
+      document.getElementById("num_stars").innerText = btn5;
+    }
+    function submit() {
+      document.getElementById(".rating_page").style.visibility = "hidden";
+      document.getElementById(".thanks_page").style.visibility = "visible";
+    }
+  </script>
 </body>
 </html>
